@@ -252,3 +252,95 @@ body{
   transform: scale(0.2);
   }
 }
+
+/* Modal */
+.hidden{
+  display: none !important; 
+}
+.visible{
+  display: grid;
+}
+.modal{
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  z-index: 4;
+
+  display: grid;
+  place-items: center;
+}
+.modal__content{
+  width: 50%;
+  height: 50%;
+  background-color: white;
+  display: grid;
+  place-items: center;
+  position: relative;
+}
+.modal__content #close{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+.modal__content--slider{
+  width: 450px;
+  height: 250px;
+  transform-style: preserve-3d;
+}
+#radio-1, #radio-2, #radio-3{
+  opacity: 0;
+}
+.cards{
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.card{
+  width: 50%;
+  height: 100%;
+  position: absolute;
+  left: 0%;
+  right: 0;
+  margin: 0 auto;
+  transition:  transform 0.5s ease;
+  cursor: pointer;
+
+  display: grid;
+  place-items: center;
+  background-color: var(--yellow);
+}
+#radio-1:checked ~ .cards #card-1,
+#radio-2:checked ~ .cards #card-2,
+#radio-3:checked ~ .cards #card-3{
+  transform: translateX(0) scale(1);
+  opacity: 1;
+  z-index: 1;
+}
+#radio-1:checked ~ .cards #card-2,
+#radio-2:checked ~ .cards #card-3,
+#radio-3:checked ~ .cards #card-1{
+  transform: translateX(40%) scale(0.8);
+  opacity: 0.5;
+  z-index: 0;
+}
+#radio-1:checked ~ .cards #card-3,
+#radio-2:checked ~ .cards #card-1,
+#radio-3:checked ~ .cards #card-2{
+  transform: translateX(-40%) scale(0.8);
+  opacity: 0.5;
+  z-index: 0;
+}
+.cards label img{
+  width: 200px;
+  height: 200px;
+}
+.cards label img{
+  transform: scale(1);
+  transition: transform 0.5s ease-in-out;
+}
+.cards label img:hover{
+  transform: scale(1.3);
+  transition: transform 0.5s ease-in-out;
+}
